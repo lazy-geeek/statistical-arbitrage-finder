@@ -1,3 +1,4 @@
 pybit
 toml
 pandas
+fmpsdk
