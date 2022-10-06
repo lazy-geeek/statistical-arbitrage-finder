@@ -2,3 +2,4 @@ pybit
 toml
 pandas
 fmpsdk
+statsmodels

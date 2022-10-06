@@ -1,3 +1,4 @@
+from fileinput import filename
 from func_price_klines import get_price_klines
 import json
 
@@ -11,13 +12,13 @@ def store_price_history(symbols):
         if len(price_history) > 0:
             price_history_dict[symbol_name] = price_history
             counts += 1
-            print(f"{counts} items stored")
+            print(symbol_name)
         else:
             print(f"{counts} items not stored")
 
     # Output prices to JSON
     if len(price_history_dict) > 0:
-        with open("1_price_list.json", "w") as fp:
+        with open("./bybit/1_price_list.json", "w") as fp:
             json.dump(price_history_dict, fp, indent=4)
         print("Prices saved successfully.")
 
