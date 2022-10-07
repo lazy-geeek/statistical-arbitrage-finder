@@ -3,3 +3,5 @@ toml
 pandas
 fmpsdk
 statsmodels
+openpyxl
+xlsxwriter
