@@ -14,6 +14,8 @@ def get_cointegrated_pairs(prices):
     
     for sym_1 in prices.keys():
 
+        print(sym_1)
+
         # Check each coin against the first (sym_1)
         for sym_2 in prices.keys():
             if sym_2 != sym_1:
@@ -80,3 +82,13 @@ def calculate_cointegration(series_1, series_2):
 def calculate_spread(series_1, series_2, hedge_ratio):
     spread = pd.Series(series_1) - (pd.Series(series_2) * hedge_ratio)
     return spread
+
+# Calculate ZScore
+def calculate_zscore(spread):
+    z_score_window = 21
+    df = pd.DataFrame(spread)
+    mean = df.rolling(center=False, window=z_score_window).mean()
+    std = df.rolling(center=False, window=z_score_window).std()
+    x = df.rolling(center=False, window=1).mean()
+    df["ZSCORE"] = (x - mean) / std
+    return df["ZSCORE"].astype(float).values
