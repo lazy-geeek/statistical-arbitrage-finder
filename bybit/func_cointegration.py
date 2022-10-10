@@ -13,6 +13,8 @@ def get_cointegrated_pairs(prices):
     count = 0
     
     for sym_1 in prices.keys():
+        
+        print(sym_1)
 
         # Check each coin against the first (sym_1)
         for sym_2 in prices.keys():
@@ -24,7 +26,7 @@ def get_cointegrated_pairs(prices):
                 #print(unique)
                 count += 1 
                 if unique in included_list:
-                    break
+                    continue
                 
                 # Get close prices
                 series_1 = extract_close_prices(prices[sym_1])
@@ -46,8 +48,7 @@ def get_cointegrated_pairs(prices):
                     
     # Output results
     df_coint = pd.DataFrame(coint_pair_list)
-    df_coint = df_coint.sort_values("zero_crossings", ascending=False)
-    df_coint.to_csv("./bybit/2_cointegrated_pairs.csv")
+    df_coint = df_coint.sort_values("zero_crossings", ascending=False)    
     return df_coint
 
 # Put close prices into a list
