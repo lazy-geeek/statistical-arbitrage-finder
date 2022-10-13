@@ -15,10 +15,13 @@ ticker_1 = "BITUSDT"
 ticker_2 = "CROUSDT"
 signal_positive_ticker = ticker_2
 signal_negative_ticker = ticker_1
-rounding_ticker_1 = 4
-rounding_ticker_2 = 3
-quantity_rounding_ticker_1 = 0
-quantity_rounding_ticker_2 = 1
+
+# TODO: Get roundings from ticker data
+
+rounding_ticker_1 = 3
+rounding_ticker_2 = 5
+quantity_rounding_ticker_1 = 1
+quantity_rounding_ticker_2 = 3
 
 limit_order_basis = True # will ensure positions (except for Close) will be placed on limit basis
 
